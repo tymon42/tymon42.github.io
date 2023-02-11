@@ -12,8 +12,7 @@
     <pubDate>Sat, 11 Feb 2023 13:02:32 &#43;0800</pubDate>
     <author>Harry</author>
     <guid>https://tymon42.github.io/posts/first_post/</guid>
-    <description><![CDATA[Hello,world!
-123]]></description>
+    <description><![CDATA[Hello,world! Blog 主题 doc github 迁移教程 Usage 预览 hugo serve --disableFastRender 生成 hugo 部署 cd public git add . git commit -m &#34;update&#34; git push origin master]]></description>
 </item>
 </channel>
 </rss>
