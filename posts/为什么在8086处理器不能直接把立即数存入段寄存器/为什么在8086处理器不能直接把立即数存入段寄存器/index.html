@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>为什么在8086处理器不能直接把立即数存入段寄存器 - Harry-Tymon42&#39;s Site</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="为什么在8086处理器不能直接把立即数存入段寄存器" />
+<meta property="og:description" content="向段寄存器存内容的常见两步 如果有一个段地址，需要存入段寄存器（ES），在 8086 处理器中，通常要这样做： mov ax, 0xb800;显存地址 mov es, ax 不能直接向" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tymon42.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-11T14:18:18+08:00" />
+<meta property="article:modified_time" content="2023-02-11T14:18:18+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="为什么在8086处理器不能直接把立即数存入段寄存器"/>
+<meta name="twitter:description" content="向段寄存器存内容的常见两步 如果有一个段地址，需要存入段寄存器（ES），在 8086 处理器中，通常要这样做： mov ax, 0xb800;显存地址 mov es, ax 不能直接向"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://tymon42.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/" /><link rel="prev" href="https://tymon42.github.io/posts/first_post/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "为什么在8086处理器不能直接把立即数存入段寄存器",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/tymon42.github.io\/posts\/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8\/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8\/"
+        },"genre": "posts","wordcount":  934 ,
+        "url": "https:\/\/tymon42.github.io\/posts\/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8\/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8\/","datePublished": "2023-02-11T14:18:18+08:00","dateModified": "2023-02-11T14:18:18+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Harry"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Harry-Tymon42&#39;s Site"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">📝 文章 </a><a class="menu-item" href="/tags/">🏷️ 标签 </a><a class="menu-item" href="/categories/">🗂️ 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Harry-Tymon42&#39;s Site"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">📝文章</a><a class="menu-item" href="/tags/" title="">🏷️标签</a><a class="menu-item" href="/categories/" title="">🗂️分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">为什么在8086处理器不能直接把立即数存入段寄存器</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tymon42" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Harry</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-11">2023-02-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;934 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><h1 id="向段寄存器存内容的常见两步">向段寄存器存内容的常见两步</h1>
+<p>如果有一个段地址，需要存入段寄存器（ES），在 8086 处理器中，通常要这样做：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-asm" data-lang="asm"><span class="line"><span class="cl"><span class="nf">mov</span> <span class="no">ax</span><span class="p">,</span> <span class="mi">0xb800</span><span class="c1">;显存地址
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nf">mov</span> <span class="no">es</span><span class="p">,</span> <span class="no">ax</span>
+</span></span></code></pre></div><p>不能直接向 ES 直接传入立即数，必须先存入通用寄存器（如 ax），再从 ax 存入 ES。
+根据 Quora 上 Paul 的回答,8086 确实是没有设计这样的指令：</p>
+<blockquote>
+<p>The designers of the 8086 architecture didn’t consider being able to store an immediate into any segment register important enough to encode it as an instruction in the binary format. As such, you need to do this in two steps: load the immediate into ax and then store it into the segment register.</p>
+</blockquote>
+<blockquote>
+<p>译：
+8086 架构的设计者没有考虑能够将立即数存储到任何重要的段寄存器中，以将其编码为二进制格式的指令。因此，您需要分两步执行此操作：将立即数加载到 ax 中，然后将其存储到段寄存器中。</p>
+</blockquote>
+<p>两种可能：</p>
+<p>8086 时代不允许这复杂的设计了：</p>
+<p>北极在知乎上的<a href="https://www.zhihu.com/question/43608287/answer/96163327" target="_blank" rel="noopener noreffer ">回答</a></p>
+<p>我个人觉得，就是编码太麻烦，opcode不太够用，指令太长。
+……</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="8086%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.jpg"
+        data-srcset="8086%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.jpg, 8086%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.jpg 1.5x, 8086%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.jpg 2x"
+        data-sizes="auto"
+        alt="8086%E5%AF%84%E5%AD%98%E5%99%A8%E7%BC%96%E7%A0%81.jpg"
+        title="8086寄存器编码.jpg" />
+因为MOV操作的寄存器有两个，其中的一个还可能是内存，还可能是寄存器组合，这样的话，2*3bit（注：原文应指8bit）用于描述寄存器，剩下2个bit用于描述是内存还是别的东西，这样算下来，一个字节勉强够用。而如果把段寄存器加上，就需要4个bit编码一个寄存器，仅仅描述两个寄存器就需要一个字节，加上其它的修饰，MOV指令长度就需要整体增加一个字节，这对于过去的计算机来说，开销无疑是非常巨大的，过去计算机内存都是以KB计算的，每个MOV指令增加一个字节，在设计者看来是无法接受的。</p>
+<p>这大概就是在说，为了节省节省开销，没有更多空间留给 mov es imd 形式的指令设计了。
+这与 Paul 的回答中的评论是一致的：</p>
+<p>I don’t think it’s impossible to fit it in, but rather omitting it simplifies the processor design, and those times are different from today in which you add extra complexity for performance.
+译：我不认为不可能设计并适配它（指mov es imd 形式的指令），而是省略它可以简化处理器的设计，而那个时代与今天这为了性能而增加额外的复杂性的时代不同。</p>
+<p>安全性问题：</p>
+<p>CSDN 上有一个很老的帖子，其中有一个回复考虑到了安全性的问题：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="./burningstyle%E7%9A%84%E5%9B%9E%E5%A4%8D.jpg"
+        data-srcset="./burningstyle%E7%9A%84%E5%9B%9E%E5%A4%8D.jpg, ./burningstyle%E7%9A%84%E5%9B%9E%E5%A4%8D.jpg 1.5x, ./burningstyle%E7%9A%84%E5%9B%9E%E5%A4%8D.jpg 2x"
+        data-sizes="auto"
+        alt="./burningstyle%E7%9A%84%E5%9B%9E%E5%A4%8D.jpg"
+        title="burningstyle的回复.jpg" /></p>
+<p>burningstyle的回复.jpg
+在 Paul 的回答中也有提到：</p>
+<p>Now storing an immediate into a segment register has a second issue — if you’re not the OS, how do you know that that memory region doesn’t belong to someone else?
+译：现在，将一个即时数据存储到段寄存器中还有一个问题–如果你不是操作系统，你怎么知道那个内存区域不属于其他人？</p>
+<p>其实这个不难理解，汇编程序对内存的使用应当存在一定的抽象以保证安全。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2023-02-11</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://tymon42.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/" data-title="为什么在8086处理器不能直接把立即数存入段寄存器"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://tymon42.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://tymon42.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/" data-title="为什么在8086处理器不能直接把立即数存入段寄存器"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://tymon42.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/" data-title="为什么在8086处理器不能直接把立即数存入段寄存器"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/first_post/" class="prev" rel="prev" title="First_post"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>First_post</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tymon42" target="_blank">Harry</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"Harry's site","id-2":"Harry's site"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
