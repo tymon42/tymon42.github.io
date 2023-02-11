@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>hugo - Tag - Harry-Tymon42&#39;s Site</title>
+        <link>https://tymon42.github.io/tags/hugo/</link>
+        <description>hugo - Tag - Harry-Tymon42&#39;s Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>harry@leaper.one (Harry)</managingEditor>
+            <webMaster>harry@leaper.one (Harry)</webMaster><lastBuildDate>Sat, 11 Feb 2023 13:02:32 &#43;0800</lastBuildDate><atom:link href="https://tymon42.github.io/tags/hugo/" rel="self" type="application/rss+xml" /><item>
+    <title>First_post</title>
+    <link>https://tymon42.github.io/posts/first_post/</link>
+    <pubDate>Sat, 11 Feb 2023 13:02:32 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/posts/first_post/</guid>
+    <description><![CDATA[Hello,world! Blog 主题 doc github 迁移教程 Usage 预览 hugo serve --disableFastRender 生成 hugo 部署 cd public git add . git commit -m &#34;update&#34; git push origin master or ./deploy.sh &#34;commit message&#34;]]></description>
+</item>
+</channel>
+</rss>
