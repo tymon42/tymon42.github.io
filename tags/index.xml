@@ -1,0 +1,8 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tags - Tag - Harry-Tymon42&#39;s Site</title>
+        <link>https://tymon42.github.io/tags/</link>
+        <description>Tags - Tag - Harry-Tymon42&#39;s Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>harry@leaper.one (Harry)</managingEditor>
+            <webMaster>harry@leaper.one (Harry)</webMaster><atom:link href="https://tymon42.github.io/tags/" rel="self" type="application/rss+xml" /></channel>
+</rss>
