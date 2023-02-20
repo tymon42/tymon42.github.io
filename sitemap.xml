@@ -2,14 +2,18 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://tymon42.github.io/tags/about-me/</loc><lastmod>2023-02-20T15:08:18&#43;08:00</lastmod></url><url>
+            <loc>https://tymon42.github.io/about/</loc><lastmod>2023-02-20T15:08:18&#43;08:00</lastmod></url><url>
+            <loc>https://tymon42.github.io/tags/contact-me/</loc><lastmod>2023-02-20T15:08:18&#43;08:00</lastmod></url><url>
+            <loc>https://tymon42.github.io/</loc><lastmod>2023-02-20T15:08:18&#43;08:00</lastmod></url><url>
+            <loc>https://tymon42.github.io/tags/</loc><lastmod>2023-02-20T15:08:18&#43;08:00</lastmod></url><url>
+            <loc>https://tymon42.github.io/tags/workspace/</loc><lastmod>2023-02-20T15:08:18&#43;08:00</lastmod></url><url>
             <loc>https://tymon42.github.io/tags/blog/</loc><lastmod>2023-02-11T13:02:32&#43;08:00</lastmod></url><url>
             <loc>https://tymon42.github.io/categories/</loc><lastmod>2023-02-11T13:02:32&#43;08:00</lastmod></url><url>
             <loc>https://tymon42.github.io/posts/first_post/</loc><lastmod>2023-02-11T13:02:32&#43;08:00</lastmod></url><url>
-            <loc>https://tymon42.github.io/</loc><lastmod>2023-02-11T13:02:32&#43;08:00</lastmod></url><url>
             <loc>https://tymon42.github.io/tags/hugo/</loc><lastmod>2023-02-11T13:02:32&#43;08:00</lastmod></url><url>
             <loc>https://tymon42.github.io/categories/hugo/</loc><lastmod>2023-02-11T13:02:32&#43;08:00</lastmod></url><url>
             <loc>https://tymon42.github.io/posts/</loc><lastmod>2023-02-11T13:02:32&#43;08:00</lastmod></url><url>
-            <loc>https://tymon42.github.io/tags/</loc><lastmod>2023-02-11T13:02:32&#43;08:00</lastmod></url><url>
             <loc>https://tymon42.github.io/posts/how-to-play-with-quorum/</loc><lastmod>2022-11-11T14:31:56&#43;08:00</lastmod></url><url>
             <loc>https://tymon42.github.io/tags/8086/</loc><lastmod>2022-08-11T14:18:18&#43;08:00</lastmod></url><url>
             <loc>https://tymon42.github.io/tags/asm/</loc><lastmod>2022-08-11T14:18:18&#43;08:00</lastmod></url><url>
