@@ -5,14 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>First_post - Harry-Tymon42&#39;s Site</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="First_post" />
-<meta property="og:description" content="Hello,world! Blog 主题 doc github 迁移教程 Usage 预览 hugo serve --disableFastRender 生成 hugo 部署 cd public git add . git commit -m &#34;update&#34; git push origin master or ./deploy.sh &#34;commit message&#34;" />
+<meta property="og:description" content="Hello,world! Blog 主题 doc github 迁移教程 Usage 创建新文章 hugo new posts/new_post.md 预览 hugo serve --disableFastRender 生成 hugo 部署 cd public git add . git commit -m &#34;update&#34; git push origin master or ./deploy.sh &#34;commit message&#34; 如何使用本地图片 一个实现逻辑： Hugo 博客的根目录有一" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tymon42.github.io/posts/first_post/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-02-11T13:02:32+08:00" />
 <meta property="article:modified_time" content="2023-02-11T13:02:32+08:00" /><meta property="og:site_name" content="My cool site" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="First_post"/>
-<meta name="twitter:description" content="Hello,world! Blog 主题 doc github 迁移教程 Usage 预览 hugo serve --disableFastRender 生成 hugo 部署 cd public git add . git commit -m &#34;update&#34; git push origin master or ./deploy.sh &#34;commit message&#34;"/>
+<meta name="twitter:description" content="Hello,world! Blog 主题 doc github 迁移教程 Usage 创建新文章 hugo new posts/new_post.md 预览 hugo serve --disableFastRender 生成 hugo 部署 cd public git add . git commit -m &#34;update&#34; git push origin master or ./deploy.sh &#34;commit message&#34; 如何使用本地图片 一个实现逻辑： Hugo 博客的根目录有一"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/tymon42.github.io\/posts\/first_post\/"
-        },"genre": "posts","keywords": "hugo, blog","wordcount":  38 ,
+        },"genre": "posts","keywords": "hugo, blog","wordcount":  364 ,
         "url": "https:\/\/tymon42.github.io\/posts\/first_post\/","datePublished": "2023-02-11T13:02:32+08:00","dateModified": "2023-02-11T13:02:32+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,7 +69,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">First_post</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tymon42" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Harry</a></span>&nbsp;<span class="post-category">included in <a href="/categories/hugo/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>hugo</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-11">2023-02-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;38 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-11">2023-02-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;364 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
@@ -81,6 +81,7 @@
     <li><a href="#主题">主题</a></li>
     <li><a href="#usage">Usage</a>
       <ul>
+        <li><a href="#创建新文章">创建新文章</a></li>
         <li><a href="#预览">预览</a></li>
         <li><a href="#生成">生成</a></li>
         <li><a href="#部署">部署</a></li>
@@ -97,7 +98,9 @@
 <li><a href="https://kiosk007.top/post/%e5%86%8d%e8%a7%81hexo%e4%bd%a0%e5%a5%bdhugo/#%e5%bc%80%e5%a7%8b%e8%bf%81%e7%a7%bb" target="_blank" rel="noopener noreffer ">迁移教程</a></li>
 </ul>
 <h2 id="usage">Usage</h2>
-<h3 id="预览">预览</h3>
+<h3 id="创建新文章">创建新文章</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo new posts/new_post.md
+</span></span></code></pre></div><h3 id="预览">预览</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo serve --disableFastRender
 </span></span></code></pre></div><h3 id="生成">生成</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo
@@ -108,7 +111,17 @@
 </span></span><span class="line"><span class="cl">git push origin master
 </span></span></code></pre></div><p>or</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./deploy.sh <span class="s2">&#34;commit message&#34;</span>
-</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+</span></span></code></pre></div><h1 id="如何使用本地图片">如何使用本地图片</h1>
+<p>一个实现逻辑：</p>
+<ol>
+<li>Hugo 博客的根目录有一个 static 目录，这个 static 目录就是用来存放一些静态文件，比如图片、css、js 文件等。</li>
+<li>执行 hugo 命令的时候，会把 static 目录下的子目录或文件复制到 public 目录下。比如我在 static 下添加了一个 img 子目录，并且在 img 子目录放了图片，那执行 hugo 命令后，就会把 static\img 文件的内容拷贝到 public\img 里面。</li>
+<li>大家都知道Hugo博客网站展示的其实是public下的内容，因此markdown文章里引用图片的时候，得引用 pubic 下的图片才可以。
+具体操作非常简单，分2步：</li>
+<li>在 static 目录下创建 img 子目录，把 markdown 要使用的图片放在 static\img 目录里。</li>
+<li>在 markdown 文件里，按照如下格式引用图片(这里假设图片名称叫wechat.png)。这样最终public目录下生成的静态页面就可以引用到 public\img 下的图片了。</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
