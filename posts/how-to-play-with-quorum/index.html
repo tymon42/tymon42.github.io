@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>How to Play With Quorum - Harry-Tymon42&#39;s Site</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="How to Play With Quorum" />
+<meta property="og:description" content="Quorum 是什么 Quorum 是 Rum System 的具体实现，它能让你自己搭建一个可以立即使用的节点并让你方便地和其他节点交换信息。全过程不依赖中心化服务器（商）。 这篇文章的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tymon42.github.io/posts/how-to-play-with-quorum/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-11T14:31:56+08:00" />
+<meta property="article:modified_time" content="2022-11-11T14:31:56+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Play With Quorum"/>
+<meta name="twitter:description" content="Quorum 是什么 Quorum 是 Rum System 的具体实现，它能让你自己搭建一个可以立即使用的节点并让你方便地和其他节点交换信息。全过程不依赖中心化服务器（商）。 这篇文章的"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://tymon42.github.io/posts/how-to-play-with-quorum/" /><link rel="prev" href="https://tymon42.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/" /><link rel="next" href="https://tymon42.github.io/posts/first_post/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "How to Play With Quorum",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/tymon42.github.io\/posts\/how-to-play-with-quorum\/"
+        },"genre": "posts","wordcount":  1224 ,
+        "url": "https:\/\/tymon42.github.io\/posts\/how-to-play-with-quorum\/","datePublished": "2022-11-11T14:31:56+08:00","dateModified": "2022-11-11T14:31:56+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Harry"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Harry-Tymon42&#39;s Site"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">📝 文章 </a><a class="menu-item" href="/tags/">🏷️ 标签 </a><a class="menu-item" href="/categories/">🗂️ 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Harry-Tymon42&#39;s Site"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">📝文章</a><a class="menu-item" href="/tags/" title="">🏷️标签</a><a class="menu-item" href="/categories/" title="">🗂️分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How to Play With Quorum</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tymon42" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Harry</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-11">2022-11-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1224 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#如果你要编译可以跳过">如果你要编译（可以跳过）：</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="quorum-是什么">Quorum 是什么</h1>
+<p>Quorum 是 <a href="https://rumsystem.net" target="_blank" rel="noopener noreffer ">Rum System</a> 的具体实现，它能让你自己搭建一个可以立即使用的节点并让你方便地和其他节点交换信息。全过程不依赖中心化服务器（商）。</p>
+<h1 id="这篇文章的目的">这篇文章的目的</h1>
+<p>这个项目还在持续开发中，所以各方面资料较少，所以这里我想分享一个相对方便的上手方式。</p>
+<h1 id="环境准备">环境准备</h1>
+<ul>
+<li>一台联网的电脑</li>
+<li>Golang 1.18.5 (其他版本我没测试过，理论上 1.13 以上都没问题)</li>
+</ul>
+<h1 id="获取-quorum">获取 Quorum</h1>
+<h2 id="如果你要编译可以跳过">如果你要编译（可以跳过）：</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git clone https://github.com/rumsystem/quorum.git
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> quorum
+</span></span><span class="line"><span class="cl">$ make buildall
+</span></span></code></pre></div><p>检查一下 /dist 文件夹下有无生成各平台的二进制可执行文件
+如果你编译了，那么下面的所有 go run ./cmd/main.go 都可以替换为 ./quorum</p>
+<p>运行前，可以先看看 <a href="https://rumsystem.github.io/quorum-api/#/" target="_blank" rel="noopener noreffer ">API 文档</a></p>
+<p>Quorum 本身是一套自动的程序，但是它如何与使用者交互呢？
+在它运行的时候，会启动一个 HTTP 服务器，监听一个指定的本地端口（启动 Quorum 的时候会作为参数传给它），所有的操作都被封装 为 HTTP 请求。
+如果想要了解 Quorum 的运行效果，通过 HTTP 与它交互是不可避免的，所以我建议你在启动 Quorum 前，先去下载一个 <a href="https://www.apifox.cn/" target="_blank" rel="noopener noreffer ">APIFOX</a>。
+然后可以把官方生成的接口文档的 swagger.json 按照这个教程导入到自己本地的 APIFOX 并自动保持更新。
+这样不仅能够查阅到最新的 API 和用法，还能通过 APIFOX 的接口调试功能很方便地与本地的 Quorum 节点（马上我们就会尝试启动它们）交互。</p>
+<p>启动节点</p>
+<p>接下来，你会启动三个节点：</p>
+<p>bootstrap node 类似于 BT 网络上的 Tracker
+owner node
+user node
+事实上，后两者是同等级的，只是名字不一样。
+官方的教程在这, 接下来我直接复制过来：</p>
+<p>Setup local test network</p>
+<p>cd to quorum souce code path and create config/ dir
+1
+mkdir -p config
+start bootstrap node
+1
+go run cmd/main.go -bootstrap -listen /ip4/0.0.0.0/tcp/10666 -logtostderr=true
+output:</p>
+<p>1
+2
+I0420 14:58:47.719592     332 keys.go:47] Load keys from config
+I0420 14:58:47.781916     332 main.go:64] Host created, ID:<!-- raw HTML omitted -->, Address:&lt;[/ip4/172.28.230.210/tcp/10666 /ip4/127.0.0.1/tcp/10666]&gt;
+Record &lt;HOST_ID&gt;, for example:
+QmR1VFquywCnakSThwWQY6euj9sRBn3586LDUm5vsfCDJR</p>
+<p>Start owner node
+1
+go run cmd/main.go -peername owner -listen /ip4/127.0.0.1/tcp/7002 -apilisten :8002 -peer /ip4/127.0.0.1/tcp/10666/p2p/<!-- raw HTML omitted --> -configdir config -datadir data -keystoredir ownerkeystore  -jsontracer ownertracer.json -debug=true
+PS: 这里有个小坑，启动指令里面的 HOST_ID 部分是不需要加 &lt;&gt; 的，原文意思是这个地方需要替换，要替换为你启动 bootstrap 是得到的 HOST_ID。
+你只需要形如：go run cmd/main.go -peername owner -listen /ip4/127.0.0.1/tcp/7002 -apilisten :8002 -peer /ip4/127.0.0.1/tcp/10666/p2p/QmR1VFquywCnakSThwWQY6euj9sRBn3586LDUm5vsfCDJR -configdir config -datadir data -keystoredir ownerkeystore -jsontracer ownertracer.json -debug=true 即可。后面的指令也同理。这里提出以防呆。</p>
+<p>For the first time, user will be asked to input a password for the node, if not given, a password will be created for the node
+After a password is created, next time user will be asked to input the password to open node.
+env RUM_KSPASSWD can be used to input node password, like:
+1
+RUM_KSPASSWD=&lt;node_passwor&gt; go run cmd/main.go&hellip;
+Start user node
+1
+go run cmd/main.go -peername user -listen /ip4/127.0.0.1/tcp/7003 -apilisten :8003 -peer /ip4/127.0.0.1/tcp/10666/p2p/<!-- raw HTML omitted --> -configdir config -datadir data -keystoredir userkeystore  -jsontracer usertracer.json -debug=true
+三个节点是什么样子的结构？</p>
+<p>owner 节点和 user 节点都连接到了 bootstrap 节点，bootstrap 节点帮助两个节点互相发现，之后，这两个节点就可以互传消息。</p>
+<p>启动节点之后，怎么用 APIFOX 交互？</p>
+<p>打开你的 APIFOX，右上角可以配置环境。
+在新窗口可以复制三个测试环境，分别改名字，对应三个节点。
+依照启动节点的参数，可以配置默认服务的前置 URL 分别为：</p>
+<p>Onewr：https://127.0.0.1:8002
+User: https://127.0.0.1:8003
+这样，只要切换不同的环境，你就能操作节点。</p>
+<p>我推荐你先从 Node 系的接口开始测试，然后可以试试自己建组（Group）并生成种子，让另一个节点加入，最后都两个节点都在组里发发消息。</p>
+<p>写在最后</p>
+<p>其实 Quorum 的应用开发思路很清晰，只需要在你的程序运行时同时启动 Quorum，指定好交互端口，在自己的应用内封装好 HTTP 请求，就可像数据库一样读写（分享）数据。</p>
+<p>如果你找到了这篇文的错误，欢迎你指出；如果你有任何关于 Quorum 的事情想和我讨论，我也同样欢迎。</p>
+<p>我的 Mixin ID：37206436
+我的邮箱： <a href="mailto:tymon42@outlook.com" rel="">tymon42@outlook.com</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-11-11</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://tymon42.github.io/posts/how-to-play-with-quorum/" data-title="How to Play With Quorum"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://tymon42.github.io/posts/how-to-play-with-quorum/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://tymon42.github.io/posts/how-to-play-with-quorum/" data-title="How to Play With Quorum"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://tymon42.github.io/posts/how-to-play-with-quorum/" data-title="How to Play With Quorum"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/" class="prev" rel="prev" title="为什么在8086处理器不能直接把立即数存入段寄存器"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>为什么在8086处理器不能直接把立即数存入段寄存器</a>
+            <a href="/posts/first_post/" class="next" rel="next" title="First_post">First_post<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://github.com/tymon42" target="_blank">Harry</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"Harry's site","id-2":"Harry's site"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
