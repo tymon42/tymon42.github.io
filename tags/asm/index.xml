@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>asm - Tag - Harry-Tymon42&#39;s Site</title>
+        <link>https://tymon42.github.io/tags/asm/</link>
+        <description>asm - Tag - Harry-Tymon42&#39;s Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>harry@leaper.one (Harry)</managingEditor>
+            <webMaster>harry@leaper.one (Harry)</webMaster><lastBuildDate>Thu, 11 Aug 2022 14:18:18 &#43;0800</lastBuildDate><atom:link href="https://tymon42.github.io/tags/asm/" rel="self" type="application/rss+xml" /><item>
+    <title>为什么在8086处理器不能直接把立即数存入段寄存器</title>
+    <link>https://tymon42.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/</link>
+    <pubDate>Thu, 11 Aug 2022 14:18:18 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/</guid>
+    <description><![CDATA[向段寄存器存内容的常见两步 如果有一个段地址，需要存入段寄存器（ES），在 8086 处理器中，通常要这样做： mov ax, 0xb800;显存地址 mov es, ax 不能直接向]]></description>
+</item>
+</channel>
+</rss>
