@@ -98,10 +98,10 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="../../public/img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/8086%e5%af%84%e5%ad%98%e5%99%a8%e7%bc%96%e7%a0%81.jpg"
-        data-srcset="../../public/img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/8086%e5%af%84%e5%ad%98%e5%99%a8%e7%bc%96%e7%a0%81.jpg, ../../public/img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/8086%e5%af%84%e5%ad%98%e5%99%a8%e7%bc%96%e7%a0%81.jpg 1.5x, ../../public/img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/8086%e5%af%84%e5%ad%98%e5%99%a8%e7%bc%96%e7%a0%81.jpg 2x"
+        data-src="/img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/8086%e5%af%84%e5%ad%98%e5%99%a8%e7%bc%96%e7%a0%81.jpg"
+        data-srcset="/img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/8086%e5%af%84%e5%ad%98%e5%99%a8%e7%bc%96%e7%a0%81.jpg, /img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/8086%e5%af%84%e5%ad%98%e5%99%a8%e7%bc%96%e7%a0%81.jpg 1.5x, /img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/8086%e5%af%84%e5%ad%98%e5%99%a8%e7%bc%96%e7%a0%81.jpg 2x"
         data-sizes="auto"
-        alt="../../public/img/为什么在8086处理器不能直接把立即数存入段寄存器/8086寄存器编码.jpg"
+        alt="/img/为什么在8086处理器不能直接把立即数存入段寄存器/8086寄存器编码.jpg"
         title="8086寄存器编码.jpg" />
 因为MOV操作的寄存器有两个，其中的一个还可能是内存，还可能是寄存器组合，这样的话，2*3bit（注：原文应指8bit）用于描述寄存器，剩下2个bit用于描述是内存还是别的东西，这样算下来，一个字节勉强够用。而如果把段寄存器加上，就需要4个bit编码一个寄存器，仅仅描述两个寄存器就需要一个字节，加上其它的修饰，MOV指令长度就需要整体增加一个字节，这对于过去的计算机来说，开销无疑是非常巨大的，过去计算机内存都是以KB计算的，每个MOV指令增加一个字节，在设计者看来是无法接受的。</p>
 <p>这大概就是在说，为了节省节省开销，没有更多空间留给 mov es imd 形式的指令设计了。
@@ -113,10 +113,10 @@
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
-        data-src="../../public/img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/burningstyle%e7%9a%84%e5%9b%9e%e5%a4%8d.jpg"
-        data-srcset="../../public/img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/burningstyle%e7%9a%84%e5%9b%9e%e5%a4%8d.jpg, ../../public/img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/burningstyle%e7%9a%84%e5%9b%9e%e5%a4%8d.jpg 1.5x, ../../public/img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/burningstyle%e7%9a%84%e5%9b%9e%e5%a4%8d.jpg 2x"
+        data-src="/img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/burningstyle%e7%9a%84%e5%9b%9e%e5%a4%8d.jpg"
+        data-srcset="/img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/burningstyle%e7%9a%84%e5%9b%9e%e5%a4%8d.jpg, /img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/burningstyle%e7%9a%84%e5%9b%9e%e5%a4%8d.jpg 1.5x, /img/%e4%b8%ba%e4%bb%80%e4%b9%88%e5%9c%a88086%e5%a4%84%e7%90%86%e5%99%a8%e4%b8%8d%e8%83%bd%e7%9b%b4%e6%8e%a5%e6%8a%8a%e7%ab%8b%e5%8d%b3%e6%95%b0%e5%ad%98%e5%85%a5%e6%ae%b5%e5%af%84%e5%ad%98%e5%99%a8/burningstyle%e7%9a%84%e5%9b%9e%e5%a4%8d.jpg 2x"
         data-sizes="auto"
-        alt="../../public/img/为什么在8086处理器不能直接把立即数存入段寄存器/burningstyle的回复.jpg"
+        alt="/img/为什么在8086处理器不能直接把立即数存入段寄存器/burningstyle的回复.jpg"
         title="burningstyle的回复.jpg" /></p>
 <p>burningstyle的回复.jpg
 在 Paul 的回答中也有提到：</p>
