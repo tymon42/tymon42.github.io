@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/tymon42.github.io\/posts\/how-to-play-with-quorum\/"
-        },"genre": "posts","wordcount":  1224 ,
+        },"genre": "posts","wordcount":  1217 ,
         "url": "https:\/\/tymon42.github.io\/posts\/how-to-play-with-quorum\/","datePublished": "2022-11-11T14:31:56+08:00","dateModified": "2022-11-11T14:31:56+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -69,7 +69,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How to Play With Quorum</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tymon42" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Harry</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-11">2022-11-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1224 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-11-11">2022-11-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1217 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;3 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
@@ -105,49 +105,46 @@
 这样不仅能够查阅到最新的 API 和用法，还能通过 APIFOX 的接口调试功能很方便地与本地的 Quorum 节点（马上我们就会尝试启动它们）交互。</p>
 <p>启动节点</p>
 <p>接下来，你会启动三个节点：</p>
-<p>bootstrap node 类似于 BT 网络上的 Tracker
+<pre tabindex="0"><code>bootstrap node 类似于 BT 网络上的 Tracker
 owner node
 user node
-事实上，后两者是同等级的，只是名字不一样。
+</code></pre><p>事实上，后两者是同等级的，只是名字不一样。
 官方的教程在这, 接下来我直接复制过来：</p>
-<p>Setup local test network</p>
-<p>cd to quorum souce code path and create config/ dir
-1
-mkdir -p config
+<h1 id="setup-local-test-network">Setup local test network</h1>
+<p>cd to quorum souce code path and create config/ dir</p>
+<pre tabindex="0"><code>mkdir -p config
 start bootstrap node
-1
+
 go run cmd/main.go -bootstrap -listen /ip4/0.0.0.0/tcp/10666 -logtostderr=true
-output:</p>
-<p>1
-2
-I0420 14:58:47.719592     332 keys.go:47] Load keys from config
-I0420 14:58:47.781916     332 main.go:64] Host created, ID:<!-- raw HTML omitted -->, Address:&lt;[/ip4/172.28.230.210/tcp/10666 /ip4/127.0.0.1/tcp/10666]&gt;
+</code></pre><p>output:</p>
+<pre tabindex="0"><code>I0420 14:58:47.719592     332 keys.go:47] Load keys from config
+I0420 14:58:47.781916     332 main.go:64] Host created, ID:&lt;QmR1VFquywCnakSThwWQY6euj9sRBn3586LDUm5vsfCDJR&gt;, Address:&lt;[/ip4/172.28.230.210/tcp/10666 /ip4/127.0.0.1/tcp/10666]&gt;
 Record &lt;HOST_ID&gt;, for example:
-QmR1VFquywCnakSThwWQY6euj9sRBn3586LDUm5vsfCDJR</p>
-<p>Start owner node
-1
-go run cmd/main.go -peername owner -listen /ip4/127.0.0.1/tcp/7002 -apilisten :8002 -peer /ip4/127.0.0.1/tcp/10666/p2p/<!-- raw HTML omitted --> -configdir config -datadir data -keystoredir ownerkeystore  -jsontracer ownertracer.json -debug=true
-PS: 这里有个小坑，启动指令里面的 HOST_ID 部分是不需要加 &lt;&gt; 的，原文意思是这个地方需要替换，要替换为你启动 bootstrap 是得到的 HOST_ID。
+QmR1VFquywCnakSThwWQY6euj9sRBn3586LDUm5vsfCDJR
+</code></pre><h1 id="start-owner-node">Start owner node</h1>
+<pre tabindex="0"><code>go run cmd/main.go -peername owner -listen /ip4/127.0.0.1/tcp/7002 -apilisten :8002 -peer /ip4/127.0.0.1/tcp/10666/p2p/&lt;QmR1VFquywCnakSThwWQY6euj9sRBn3586LDUm5vsfCDJR&gt; -configdir config -datadir data -keystoredir ownerkeystore  -jsontracer ownertracer.json -debug=true
+</code></pre><blockquote>
+<p>PS: 这里有个小坑，启动指令里面的 HOST_ID 部分是不需要加 &lt;&gt; 的，原文意思是这个地方需要替换，要替换为你启动 bootstrap 是得到的 HOST_ID。
 你只需要形如：go run cmd/main.go -peername owner -listen /ip4/127.0.0.1/tcp/7002 -apilisten :8002 -peer /ip4/127.0.0.1/tcp/10666/p2p/QmR1VFquywCnakSThwWQY6euj9sRBn3586LDUm5vsfCDJR -configdir config -datadir data -keystoredir ownerkeystore -jsontracer ownertracer.json -debug=true 即可。后面的指令也同理。这里提出以防呆。</p>
+</blockquote>
 <p>For the first time, user will be asked to input a password for the node, if not given, a password will be created for the node
 After a password is created, next time user will be asked to input the password to open node.
-env RUM_KSPASSWD can be used to input node password, like:
-1
-RUM_KSPASSWD=&lt;node_passwor&gt; go run cmd/main.go&hellip;
+env RUM_KSPASSWD can be used to input node password, like:</p>
+<pre tabindex="0"><code>RUM_KSPASSWD=&lt;node_passwor&gt; go run cmd/main.go...
 Start user node
-1
-go run cmd/main.go -peername user -listen /ip4/127.0.0.1/tcp/7003 -apilisten :8003 -peer /ip4/127.0.0.1/tcp/10666/p2p/<!-- raw HTML omitted --> -configdir config -datadir data -keystoredir userkeystore  -jsontracer usertracer.json -debug=true
-三个节点是什么样子的结构？</p>
+
+go run cmd/main.go -peername user -listen /ip4/127.0.0.1/tcp/7003 -apilisten :8003 -peer /ip4/127.0.0.1/tcp/10666/p2p/&lt;QmR1VFquywCnakSThwWQY6euj9sRBn3586LDUm5vsfCDJR&gt; -configdir config -datadir data -keystoredir userkeystore  -jsontracer usertracer.json -debug=true
+</code></pre><h1 id="三个节点是什么样子的结构">三个节点是什么样子的结构？</h1>
 <p>owner 节点和 user 节点都连接到了 bootstrap 节点，bootstrap 节点帮助两个节点互相发现，之后，这两个节点就可以互传消息。</p>
 <p>启动节点之后，怎么用 APIFOX 交互？</p>
 <p>打开你的 APIFOX，右上角可以配置环境。
 在新窗口可以复制三个测试环境，分别改名字，对应三个节点。
 依照启动节点的参数，可以配置默认服务的前置 URL 分别为：</p>
-<p>Onewr：https://127.0.0.1:8002
+<pre tabindex="0"><code>Onewr：https://127.0.0.1:8002
 User: https://127.0.0.1:8003
-这样，只要切换不同的环境，你就能操作节点。</p>
+</code></pre><p>这样，只要切换不同的环境，你就能操作节点。</p>
 <p>我推荐你先从 Node 系的接口开始测试，然后可以试试自己建组（Group）并生成种子，让另一个节点加入，最后都两个节点都在组里发发消息。</p>
-<p>写在最后</p>
+<h1 id="写在最后">写在最后</h1>
 <p>其实 Quorum 的应用开发思路很清晰，只需要在你的程序运行时同时启动 Quorum，指定好交互端口，在自己的应用内封装好 HTTP 请求，就可像数据库一样读写（分享）数据。</p>
 <p>如果你找到了这篇文的错误，欢迎你指出；如果你有任何关于 Quorum 的事情想和我讨论，我也同样欢迎。</p>
 <p>我的 Mixin ID：37206436
