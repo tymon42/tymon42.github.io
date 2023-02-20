@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>飞书 - Tag - Harry-Tymon42&#39;s Site</title>
+        <link>https://tymon42.github.io/tags/%E9%A3%9E%E4%B9%A6/</link>
+        <description>飞书 - Tag - Harry-Tymon42&#39;s Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>harry@leaper.one (Harry)</managingEditor>
+            <webMaster>harry@leaper.one (Harry)</webMaster><lastBuildDate>Mon, 20 Feb 2023 16:48:04 &#43;0800</lastBuildDate><atom:link href="https://tymon42.github.io/tags/%E9%A3%9E%E4%B9%A6/" rel="self" type="application/rss+xml" /><item>
+    <title>飞书文档和印象笔记</title>
+    <link>https://tymon42.github.io/posts/%E9%A3%9E%E4%B9%A6%E6%96%87%E6%A1%A3%E5%92%8C%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0/</link>
+    <pubDate>Mon, 20 Feb 2023 16:48:04 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/posts/%E9%A3%9E%E4%B9%A6%E6%96%87%E6%A1%A3%E5%92%8C%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0/</guid>
+    <description><![CDATA[背景 2022年11月左右，我在推动团队集体使用飞书。 不得不说飞书在团队协作方面有非常先进的理念和实践，尤其是它的文档系统。当我确定一个主题之]]></description>
+</item>
+</channel>
+</rss>
