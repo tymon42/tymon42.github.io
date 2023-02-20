@@ -8,15 +8,15 @@
 <meta property="og:description" content="向段寄存器存内容的常见两步 如果有一个段地址，需要存入段寄存器（ES），在 8086 处理器中，通常要这样做： mov ax, 0xb800;显存地址 mov es, ax 不能直接向" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://tymon42.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-02-11T14:18:18+08:00" />
-<meta property="article:modified_time" content="2023-02-11T14:18:18+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta property="article:published_time" content="2022-08-11T14:18:18+08:00" />
+<meta property="article:modified_time" content="2022-08-11T14:18:18+08:00" /><meta property="og:site_name" content="My cool site" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="为什么在8086处理器不能直接把立即数存入段寄存器"/>
 <meta name="twitter:description" content="向段寄存器存内容的常见两步 如果有一个段地址，需要存入段寄存器（ES），在 8086 处理器中，通常要这样做： mov ax, 0xb800;显存地址 mov es, ax 不能直接向"/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://tymon42.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/" /><link rel="prev" href="https://tymon42.github.io/posts/first_post/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://tymon42.github.io/posts/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8/" /><link rel="next" href="https://tymon42.github.io/posts/first_post/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -28,7 +28,7 @@
             "@type": "WebPage",
             "@id": "https:\/\/tymon42.github.io\/posts\/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8\/"
         },"genre": "posts","wordcount":  934 ,
-        "url": "https:\/\/tymon42.github.io\/posts\/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8\/","datePublished": "2023-02-11T14:18:18+08:00","dateModified": "2023-02-11T14:18:18+08:00","publisher": {
+        "url": "https:\/\/tymon42.github.io\/posts\/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A88086%E5%A4%84%E7%90%86%E5%99%A8%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8A%8A%E7%AB%8B%E5%8D%B3%E6%95%B0%E5%AD%98%E5%85%A5%E6%AE%B5%E5%AF%84%E5%AD%98%E5%99%A8\/","datePublished": "2022-08-11T14:18:18+08:00","dateModified": "2022-08-11T14:18:18+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -69,7 +69,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">为什么在8086处理器不能直接把立即数存入段寄存器</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="https://github.com/tymon42" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Harry</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-11">2023-02-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;934 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-11">2022-08-11</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;934 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="true">
                 <div class="details-summary toc-title">
@@ -127,7 +127,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2023-02-11</span>
+                <span>Updated on 2022-08-11</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
@@ -144,7 +144,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/first_post/" class="prev" rel="prev" title="First_post"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>First_post</a></div>
+    <div class="post-nav">
+            <a href="/posts/first_post/" class="next" rel="next" title="First_post">First_post<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
