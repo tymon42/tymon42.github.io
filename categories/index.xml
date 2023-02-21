@@ -4,7 +4,47 @@
         <link>https://tymon42.github.io/categories/</link>
         <description>Categories - Category - Harry-Tymon42&#39;s Site</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>harry@leaper.one (Harry)</managingEditor>
-            <webMaster>harry@leaper.one (Harry)</webMaster><lastBuildDate>Sat, 11 Feb 2023 13:02:32 &#43;0800</lastBuildDate><atom:link href="https://tymon42.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>harry@leaper.one (Harry)</webMaster><lastBuildDate>Tue, 21 Feb 2023 10:21:30 &#43;0800</lastBuildDate><atom:link href="https://tymon42.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>iOS</title>
+    <link>https://tymon42.github.io/categories/ios/</link>
+    <pubDate>Tue, 21 Feb 2023 10:21:30 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/categories/ios/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>shortcut</title>
+    <link>https://tymon42.github.io/categories/shortcut/</link>
+    <pubDate>Tue, 21 Feb 2023 10:21:30 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/categories/shortcut/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>小技巧</title>
+    <link>https://tymon42.github.io/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/</link>
+    <pubDate>Tue, 21 Feb 2023 10:21:30 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/categories/%E5%B0%8F%E6%8A%80%E5%B7%A7/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>工具</title>
+    <link>https://tymon42.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
+    <pubDate>Mon, 20 Feb 2023 16:48:04 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/categories/%E5%B7%A5%E5%85%B7/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>about me</title>
+    <link>https://tymon42.github.io/categories/about-me/</link>
+    <pubDate>Mon, 20 Feb 2023 15:08:18 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/categories/about-me/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>hugo</title>
     <link>https://tymon42.github.io/categories/hugo/</link>
     <pubDate>Sat, 11 Feb 2023 13:02:32 &#43;0800</pubDate>

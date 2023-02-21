@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>iOS - Category - Harry-Tymon42&#39;s Site</title>
+        <link>https://tymon42.github.io/categories/ios/</link>
+        <description>iOS - Category - Harry-Tymon42&#39;s Site</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>harry@leaper.one (Harry)</managingEditor>
+            <webMaster>harry@leaper.one (Harry)</webMaster><lastBuildDate>Tue, 21 Feb 2023 10:21:30 &#43;0800</lastBuildDate><atom:link href="https://tymon42.github.io/categories/ios/" rel="self" type="application/rss+xml" /><item>
+    <title>iOS如何用快捷指令重复提醒事项</title>
+    <link>https://tymon42.github.io/posts/202302/ios%E5%A6%82%E4%BD%95%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4%E9%87%8D%E5%A4%8D%E6%8F%90%E9%86%92%E4%BA%8B%E9%A1%B9/</link>
+    <pubDate>Tue, 21 Feb 2023 10:21:30 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/posts/202302/ios%E5%A6%82%E4%BD%95%E7%94%A8%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4%E9%87%8D%E5%A4%8D%E6%8F%90%E9%86%92%E4%BA%8B%E9%A1%B9/</guid>
+    <description><![CDATA[新版本的 iOS 提醒事项取消了事项的重复功能，也就是没法每天早上提醒我给花浇水。我后悔升级提醒事项了，但也没法退级。那怎么办呢？ 我看了一下快捷指令]]></description>
+</item>
+</channel>
+</rss>

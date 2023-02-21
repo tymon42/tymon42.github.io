@@ -4,7 +4,39 @@
         <link>https://tymon42.github.io/tags/</link>
         <description>Tags - Tag - Harry-Tymon42&#39;s Site</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>harry@leaper.one (Harry)</managingEditor>
-            <webMaster>harry@leaper.one (Harry)</webMaster><lastBuildDate>Mon, 20 Feb 2023 16:48:04 &#43;0800</lastBuildDate><atom:link href="https://tymon42.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>harry@leaper.one (Harry)</webMaster><lastBuildDate>Tue, 21 Feb 2023 10:21:30 &#43;0800</lastBuildDate><atom:link href="https://tymon42.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>iOS</title>
+    <link>https://tymon42.github.io/tags/ios/</link>
+    <pubDate>Tue, 21 Feb 2023 10:21:30 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/tags/ios/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>reminder</title>
+    <link>https://tymon42.github.io/tags/reminder/</link>
+    <pubDate>Tue, 21 Feb 2023 10:21:30 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/tags/reminder/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>shortcut</title>
+    <link>https://tymon42.github.io/tags/shortcut/</link>
+    <pubDate>Tue, 21 Feb 2023 10:21:30 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/tags/shortcut/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>小技巧</title>
+    <link>https://tymon42.github.io/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/</link>
+    <pubDate>Tue, 21 Feb 2023 10:21:30 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>印象笔记</title>
     <link>https://tymon42.github.io/tags/%E5%8D%B0%E8%B1%A1%E7%AC%94%E8%AE%B0/</link>
     <pubDate>Mon, 20 Feb 2023 16:48:04 &#43;0800</pubDate>
@@ -50,38 +82,6 @@
     <pubDate>Mon, 20 Feb 2023 15:08:18 &#43;0800</pubDate>
     <author>Harry</author>
     <guid>https://tymon42.github.io/tags/workspace/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>blog</title>
-    <link>https://tymon42.github.io/tags/blog/</link>
-    <pubDate>Sat, 11 Feb 2023 13:02:32 &#43;0800</pubDate>
-    <author>Harry</author>
-    <guid>https://tymon42.github.io/tags/blog/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>hugo</title>
-    <link>https://tymon42.github.io/tags/hugo/</link>
-    <pubDate>Sat, 11 Feb 2023 13:02:32 &#43;0800</pubDate>
-    <author>Harry</author>
-    <guid>https://tymon42.github.io/tags/hugo/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>blockchain</title>
-    <link>https://tymon42.github.io/tags/blockchain/</link>
-    <pubDate>Fri, 11 Nov 2022 14:31:56 &#43;0800</pubDate>
-    <author>Harry</author>
-    <guid>https://tymon42.github.io/tags/blockchain/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>golang</title>
-    <link>https://tymon42.github.io/tags/golang/</link>
-    <pubDate>Fri, 11 Nov 2022 14:31:56 &#43;0800</pubDate>
-    <author>Harry</author>
-    <guid>https://tymon42.github.io/tags/golang/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>
