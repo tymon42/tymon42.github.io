@@ -4,9 +4,17 @@
         <link>https://tymon42.github.io/</link>
         <description>This is my cool site</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>harry@leaper.one (Harry)</managingEditor>
-            <webMaster>harry@leaper.one (Harry)</webMaster><lastBuildDate>Thu, 23 Feb 2023 13:50:33 &#43;0800</lastBuildDate>
+            <webMaster>harry@leaper.one (Harry)</webMaster><lastBuildDate>Thu, 23 Feb 2023 23:58:59 &#43;0800</lastBuildDate>
             <atom:link href="https://tymon42.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>2022我的错误</title>
+    <link>https://tymon42.github.io/posts/202302/2022%E6%88%91%E7%9A%84%E9%94%99%E8%AF%AF/</link>
+    <pubDate>Thu, 23 Feb 2023 23:58:59 &#43;0800</pubDate>
+    <author>Harry</author>
+    <guid>https://tymon42.github.io/posts/202302/2022%E6%88%91%E7%9A%84%E9%94%99%E8%AF%AF/</guid>
+    <description><![CDATA[有两年没写总结了，说来惭愧，以前的太小打小闹了。想想 2022 ，有很多事情要反思。 事情还得从两千年前赵简子立储说起： 赵简子之子，长曰伯鲁，幼曰无恤。]]></description>
+</item>
+<item>
     <title>我的工作环境和信息流</title>
     <link>https://tymon42.github.io/posts/202302/%E6%88%91%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%8E%AF%E5%A2%83%E5%92%8C%E4%BF%A1%E6%81%AF%E6%B5%81/</link>
     <pubDate>Thu, 23 Feb 2023 13:50:33 &#43;0800</pubDate>
