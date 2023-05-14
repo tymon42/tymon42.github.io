@@ -1,10 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Harry-Tymon42&#39;s Site</title>
+        <title>Harry-Tymon42&#39;s Blog</title>
         <link>https://tymon42.github.io/</link>
         <description>This is my cool site</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>harry@leaper.one (Harry)</managingEditor>
-            <webMaster>harry@leaper.one (Harry)</webMaster><lastBuildDate>Tue, 14 Mar 2023 22:22:39 &#43;0800</lastBuildDate>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>tymon42@outlook.one (Harry)</managingEditor>
+            <webMaster>tymon42@outlook.one (Harry)</webMaster><lastBuildDate>Tue, 14 Mar 2023 22:22:39 &#43;0800</lastBuildDate>
             <atom:link href="https://tymon42.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>个签、心态、批评和自我批评</title>
