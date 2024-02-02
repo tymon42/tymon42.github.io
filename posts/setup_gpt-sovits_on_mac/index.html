@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>如何用 MacOS 下使用 GPT-SoVITS - Harry-Tymon42&#39;s Blog</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="如何用 MacOS 下使用 GPT-SoVITS" />
+<meta property="og:description" content="前言 第一次配置环境时，用了一个钟，踩了不少坑。现整理出来，方便大家快速在自己的 Mac 上启动 GPT-SoVITS。 环境和前置准备 我的硬件环境： 用的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://tymon42.github.io/posts/setup_gpt-sovits_on_mac/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-02-02T20:16:34+08:00" />
+<meta property="article:modified_time" content="2024-02-02T20:16:34+08:00" /><meta property="og:site_name" content="My cool site" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何用 MacOS 下使用 GPT-SoVITS"/>
+<meta name="twitter:description" content="前言 第一次配置环境时，用了一个钟，踩了不少坑。现整理出来，方便大家快速在自己的 Mac 上启动 GPT-SoVITS。 环境和前置准备 我的硬件环境： 用的"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://tymon42.github.io/posts/setup_gpt-sovits_on_mac/" /><link rel="prev" href="https://tymon42.github.io/posts/202303/%E4%B8%AA%E7%AD%BE%E5%BF%83%E6%80%81%E6%89%B9%E8%AF%84%E5%92%8C%E8%87%AA%E6%88%91%E6%89%B9%E8%AF%84/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "如何用 MacOS 下使用 GPT-SoVITS",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/tymon42.github.io\/posts\/setup_gpt-sovits_on_mac\/"
+        },"genre": "posts","wordcount":  434 ,
+        "url": "https:\/\/tymon42.github.io\/posts\/setup_gpt-sovits_on_mac\/","datePublished": "2024-02-02T20:16:34+08:00","dateModified": "2024-02-02T20:16:34+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Harry"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Harry-Tymon42&#39;s Blog"><span id="id-1" class="typeit"></span></a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/">📝 文章 </a><a class="menu-item" href="/tags/">🏷️ 标签 </a><a class="menu-item" href="/categories/">🗂️ 分类 </a><a class="menu-item" href="/about/">👨‍💻 关于 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Harry-Tymon42&#39;s Blog"><span id="id-2" class="typeit"></span></a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">📝文章</a><a class="menu-item" href="/tags/" title="">🏷️标签</a><a class="menu-item" href="/categories/" title="">🗂️分类</a><a class="menu-item" href="/about/" title="">👨‍💻关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">如何用 MacOS 下使用 GPT-SoVITS</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://bento.me/harrywong" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Harry</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-02">2024-02-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;434 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="true">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#我的硬件环境">我的硬件环境：</a></li>
+    <li><a href="#软件环境">软件环境：</a>
+      <ul>
+        <li><a href="#安装-ffmpeg">安装 ffmpeg</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><!-- raw HTML omitted -->
+<h1 id="前言">前言</h1>
+<p>第一次配置环境时，用了一个钟，踩了不少坑。现整理出来，方便大家快速在自己的 Mac 上启动 GPT-SoVITS。</p>
+<h1 id="环境和前置准备">环境和前置准备</h1>
+<h2 id="我的硬件环境">我的硬件环境：</h2>
+<p>用的是 MacBook Air M2 内存 16G，系统版本是 macOS 14.3。
+有统一内存架构，所以不需要额外的显卡。用来上手 GPT-SoVITS 是绰绰有余的。</p>
+<h2 id="软件环境">软件环境：</h2>
+<ul>
+<li>已通过运行xcode-select &ndash;install安装 Xcode command-line tools</li>
+<li>安装好 Miniconda</li>
+<li>如果你会给 Conda 换源，那么也不需要魔法上网</li>
+<li>安装好了 git 、ffmpeg 、huggingface-cli</li>
+</ul>
+<h3 id="安装-ffmpeg">安装 ffmpeg</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 安装 ffmpeg</span>
+</span></span><span class="line"><span class="cl">brew install ffmpeg
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看版本</span>
+</span></span><span class="line"><span class="cl">ffmpeg -version
+</span></span></code></pre></div><h1 id="拉取代码创建环境安装依赖">拉取代码、创建环境、安装依赖</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 拉取项目代码</span>
+</span></span><span class="line"><span class="cl">git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/RVC-Boss/GPT-SoVITS
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> GPT-SoVITS
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 安装好 Miniconda 之后，先创建一个虚拟环境：</span>
+</span></span><span class="line"><span class="cl">conda create -n GPTSoVits <span class="nv">python</span><span class="o">=</span>3.9
+</span></span><span class="line"><span class="cl">conda activate GPTSoVits
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 安装依赖：</span>
+</span></span><span class="line"><span class="cl">pip3 install -r requirements.txt
+</span></span><span class="line"><span class="cl">pip3 uninstall torch torchaudio
+</span></span><span class="line"><span class="cl">pip3 install --pre torch torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># (可选)如果网络环境不好，可以考虑换源(比如清华源)：</span>
+</span></span><span class="line"><span class="cl">pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple -r requirements.txt
+</span></span><span class="line"><span class="cl">pip3 uninstall torch torchaudio
+</span></span><span class="line"><span class="cl">pip3 install --pre torch torchaudio --index-url https://download.pytorch.org/whl/nightly/cpu
+</span></span></code></pre></div><h1 id="下载模型">下载模型</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 安装 huggingface-cli 用于和 huggingface hub 交互</span>
+</span></span><span class="line"><span class="cl">pip3 install huggingface_hub
+</span></span><span class="line"><span class="cl"><span class="c1"># 登录 huggingface-cli</span>
+</span></span><span class="line"><span class="cl">hugging face-cli login
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 下载模型, 由于模型文件较大，可能需要一段时间</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># --local-dir-use-symlinks False 用于解决 macOS alias 文件的问题</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 会下载到 GPT_SoVITS/pretrained_models 文件夹下</span>
+</span></span><span class="line"><span class="cl">huggingface-cli download --resume-download lj1995/GPT-SoVITS --local-dir GPT_SoVITS/pretrained_models --local-dir-use-symlinks False
+</span></span></code></pre></div><h1 id="运行">运行</h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python webui.py
+</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2024-02-02</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://tymon42.github.io/posts/setup_gpt-sovits_on_mac/" data-title="如何用 MacOS 下使用 GPT-SoVITS"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://tymon42.github.io/posts/setup_gpt-sovits_on_mac/"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="https://tymon42.github.io/posts/setup_gpt-sovits_on_mac/" data-title="如何用 MacOS 下使用 GPT-SoVITS"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="https://tymon42.github.io/posts/setup_gpt-sovits_on_mac/" data-title="如何用 MacOS 下使用 GPT-SoVITS"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/202303/%E4%B8%AA%E7%AD%BE%E5%BF%83%E6%80%81%E6%89%B9%E8%AF%84%E5%92%8C%E8%87%AA%E6%88%91%E6%89%B9%E8%AF%84/" class="prev" rel="prev" title="个签、心态、批评和自我批评"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>个签、心态、批评和自我批评</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.118.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://bento.me/harrywong" target="_blank">Harry</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/typeit@8.6.0/dist/index.umd.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"data":{"id-1":"Harry's site","id-2":"Harry's site"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"typeit":{"cursorChar":"|","cursorSpeed":1000,"data":{"id-1":["id-1"],"id-2":["id-2"]},"duration":-1,"speed":100}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
